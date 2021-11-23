@@ -75,6 +75,8 @@ If the link fails, please feel free to contact me.
 	# Download gt zip. e.g., GT_stl10_allimages.zip
 	# unzip and rename
 	unzip GT_stl10_allimages.zip
+	mkdir ./B/
+	mv ./GT_stl10_allimages ./B/train
 	```
 
 	+ Organize the dataset (rename and move)
@@ -119,12 +121,66 @@ If the link fails, please feel free to contact me.
 		In our paper, we organize the data files using the following commands:
 
 		+ For STL-10 (including real-world images)
+		```bash
+		# gt
+		mkdir ./stl10_genera/chaomo_withstl10
+		mkdir ./stl10_genera/MNIST_withstl10
+		mkdir ./stl10_genera/real_withstl10
+		mkdir ./test/gt_test
+		mkdir ./test/gt_val
 
-		+ For supermodel faces 
+		mv ./B/train/*11.png ./test/gt_val
+		mv ./B/train/*31.png ./test/gt_val
+		mv ./B/train/*51.png ./test/gt_val
+		mv ./B/train/*71.png ./test/gt_val
+
+		mv ./B/train/*21.png ./test/gt_test
+		mv ./B/train/*41.png ./test/gt_test
+		mv ./B/train/*61.png ./test/gt_test
+		mv ./B/train/*81.png ./test/gt_test
+
+		mv ./B/train/testchaomo* ./stl10_genera/chaomo_withstl10
+		mv ./B/train/testmnist* ./stl10_genera/MNIST_withstl10
+		mv ./B/train/testreal* ./stl10_genera/real_withstl10
+
+
+		# projection images
+		mkdir ./stl10_genera/C_dark_1_d100_occluder_test
+		mkdir ./stl10_genera/C_dark_1_d100_occluder_test/real
+		mkdir ./stl10_genera/C_dark_1_d100_occluder_test/MNIST
+		mkdir ./stl10_genera/C_dark_1_d100_occluder_test/chaomo
+		mkdir ./test/C_dark_1_d100_occluder_test
+		mkdir ./test/C_dark_1_d100_occluder_val
+
+
+		mv ./C_dark_1_d100_occluder/testreal* ./stl10_genera/C_dark_1_d100_occluder_test/real
+		mv ./C_dark_1_d100_occluder/testmnist* ./stl10_genera/C_dark_1_d100_occluder_test/MNIST
+		mv ./C_dark_1_d100_occluder/testchaomo* ./stl10_genera/C_dark_1_d100_occluder_test/chaomo
+
+		mv ./C_dark_1_d100_occluder/*11.png ./test/C_dark_1_d100_occluder_val
+		mv ./C_dark_1_d100_occluder/*31.png ./test/C_dark_1_d100_occluder_val
+		mv ./C_dark_1_d100_occluder/*51.png ./test/C_dark_1_d100_occluder_val
+		mv ./C_dark_1_d100_occluder/*71.png ./test/C_dark_1_d100_occluder_val
+
+		mv ./C_dark_1_d100_occluder/*21.png ./test/C_dark_1_d100_occluder_test
+		mv ./C_dark_1_d100_occluder/*41.png ./test/C_dark_1_d100_occluder_test
+		mv ./C_dark_1_d100_occluder/*61.png ./test/C_dark_1_d100_occluder_test
+		mv ./C_dark_1_d100_occluder/*81.png ./test/C_dark_1_d100_occluder_test
+		```
+
+
+		+ For supermodel faces / MNIST / anime faces
 
 		```bash
 		# gt
+		mkdir ./test/gt_test
+		mkdir ./test/gt_val
 
+		mv ./B/train/5* ./test/gt_val
+
+		mv ./test/C_dark_1_d100_wall_val/51* ./test/gt_test
+		mv ./test/C_dark_1_d100_wall_val/55* ./test/gt_test
+		mv ./test/C_dark_1_d100_wall_val/59* ./test/gt_test
 		# projection images
 		mkdir ./test/C_dark_1_d100_wall_test
 		mkdir ./test/C_dark_1_d100_wall_val
@@ -159,11 +215,14 @@ Before that, you should have installed the required packages and organized the d
 
 	```
 	@article{nlosot,
-		title = {Passive Non-Line-of-Sight Imaging Using Optimal Transport},
-		journal = {IEEE Transactions on Image Processing},
-		author = {Geng, Ruixu and Hu, Yang and Lu, Zhi and Yu, Cong and Li, Houqiang and Zhang, Hengyu and Chen, Yan},
-		year = {2021}
-	}
+	author={Geng, Ruixu and Hu, Yang and Lu, Zhi and Yu, Cong and Li, Houqiang and Zhang, Hengyu and Chen, Yan},
+	journal={IEEE Transactions on Image Processing}, 
+	title={Passive Non-Line-of-Sight Imaging Using Optimal Transport}, 
+	year={2021},
+	volume={},
+	number={},
+	pages={1-1},
+	doi={10.1109/TIP.2021.3128312}}
 	```
 
 - You may also be interested in our review article: 
