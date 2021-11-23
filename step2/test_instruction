@@ -1,0 +1,16 @@
+# STL-10 
+## test STL-10
+conda activate pytorch17; python test.py --datarootTarget /share2/data/AONLOS/STL10/test/gt_test/ --datarootData /share2/data/AONLOS/STL10/test/C_dark_1_d100_wall_occluder_new_test/ --model test --dataset_mode single --learn_residual --resize_or_crop=no_change --name='stl10_wall_dark1_d100_L1_occluder_new_batch_ep10' --gpu_ids='5' --which_model_netG introAE --which_epoch 19 --norm batch --display_port=9016 --snrnote='ep4_stl10'
+
+## test supermodel faces
+python test.py --datarootTarget /share2/data/AONLOS/STL10/stl10_genera/chaomo_withstl10/ --datarootData /share2/data/AONLOS/STL10/stl10_genera/C_dark_1_d100_wall_occluder_new_test/chaomo/ --model test --dataset_mode single --learn_residual --resize_or_crop=no_change --name='stl10_wall_dark1_d100_L1_occluder_new_batch_ep10' --gpu_ids='10' --which_model_netG introAE --which_epoch 19 --norm batch --display_port=9016 --snrnote='ep4_chaomo'
+
+## test MNIST
+python test.py --datarootTarget /share2/data/AONLOS/STL10/stl10_genera/MNIST_withstl10/ --datarootData /share2/data/AONLOS/STL10/stl10_genera/C_dark_1_d100_wall_occluder_new_test/MNIST/ --model test --dataset_mode single --learn_residual --resize_or_crop=no_change --name='stl10_wall_dark1_d100_L1_occluder_new_batch_ep10' --gpu_ids='5' --which_model_netG introAE --which_epoch 10 --norm batch --display_port=9016 --snrnote='ep10_MNIST'
+
+## test real-world images
+python test.py --datarootTarget /share2/data/AONLOS/STL10/stl10_genera/real_withstl10/ --datarootData /share2/data/AONLOS/STL10/stl10_genera/C_dark_1_d100_wall_occluder_new_test/real/ --model test --dataset_mode single --learn_residual --resize_or_crop=no_change --name='stl10_wall_dark1_d100_L1_occluder_new_batch_ep10' --gpu_ids='5' --which_model_netG introAE --which_epoch 10 --norm batch --display_port=9016 --snrnote='ep10_real'
+
+
+# supermodel faces
+python test.py --datarootTarget /share2/data/AONLOS/Dataset/chaomo/test/B_flip_test/ --datarootData /share2/data/AONLOS/supermodelFaces/test/C_dark_1_d100_wall_nooccluder_new_test/ --model test --dataset_mode single --learn_residual --resize_or_crop=no_change --name='chaomo_wall_dark1_d100_nooccluder_L1_batch_new_opensource' --gpu_ids='6' --which_model_netG introAE --which_epoch 40 --norm batch --display_port=9016;

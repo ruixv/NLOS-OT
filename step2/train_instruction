@@ -1,0 +1,12 @@
+# start visdom
+screen -S 9012;
+sra python36; python36 -m visdom.server -port 9010
+
+# train
+
+## stl-10
+conda activate pytorch17; CUDA_VISIBLE_DEVICES=4 python train.py --datarootTarget /share2/data/AONLOS/STL10/B/ --datarootData /share2/data/AONLOS/STL10/C_dark_1_d100_wall_occluder_new/ --datarootValTarget /share2/data/AONLOS/STL10/test/gt_val/ --datarootValData /share2/data/AONLOS/STL10/test/C_dark_1_d100_wall_occluder_new_val/ --learn_residual --gpu_ids='0' --batchSize=20 --name='stl10_wall_dark1_d100_L1_occluder_new_batch_ep10' --niter=40 --niter_decay=300 --which_model_netG introAE --lossType='L1' --norm 'batch' --which_data 'stl10' --which_ep='10'  --display_port=9009
+
+
+## supermodel faces
+conda activate pytorch17; CUDA_VISIBLE_DEVICES=1 python train.py --datarootTarget /share2/data/AONLOS/Dataset/chaomo/B_flip/ --datarootData /share2/data/AONLOS/supermodelFaces/C_dark_1_d100_wall_nooccluder_new/ --datarootValTarget /share2/data/AONLOS/Dataset/chaomo/test/B_flip_val --datarootValData /share2/data/AONLOS/supermodelFaces/test/C_dark_1_d100_wall_nooccluder_new_val/ --learn_residual --gpu_ids='0' --batchSize=20 --name='chaomo_wall_dark1_d100_nooccluder_L1_batch_new_opensource' --niter=40 --niter_decay=300 --which_model_netG introAE --display_port=9010 --lossType='L1' --norm 'batch' --which_data 'chaomo'  --nThreads 8
