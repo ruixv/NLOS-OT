@@ -47,7 +47,7 @@ link：https://pan.baidu.com/s/19Q48BWm1aJQhIt6BF9z-uQ
 
 code：j3p2
 
-If the link fails, please feel free to contact me.
+For more information about this dataset, please see [Dataset Description](/Dataset/NLOS-Passive.md). If the link fails, please feel free to contact us.
 
 > In the following content, we will take the partially occluded dataset on STL-10 (i.e., NLOS_Passive/STL-10/stl10_dark_1_d100_occluder.zip) as an example to illustrate the training and testing process. The dataset also contains test data from other data (MNIST, supermodel faces and real scenes), which can be used to evaluate the generalization ability of NLOS-OT.
 
