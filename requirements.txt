@@ -1,0 +1,9 @@
+dominate==2.4.0
+geomloss==0.2.4
+matplotlib==2.2.2
+numpy==1.19.5
+Pillow==8.4.0
+POT==0.8.0
+torch==1.7.1
+torchvision==0.8.2
+visdom==0.1.8.9

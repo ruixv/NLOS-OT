@@ -64,18 +64,20 @@ class PerceptualLoss():
 		return output
 
 	def get_otloss(self, latent_i,latent_t):
-		loss_ot = 0
-		pi_loss = nn.L1Loss(reduction='sum')
 		batchsize = latent_i.shape[0]
-		if batchsize != latent_t.shape[0]:
-			raise ValueError('The length of the two latent codes must be the same.')
-		for ii in range(batchsize):
-			for jj in range(batchsize):
+		M = torch.zeros(batchsize,batchsize)
+		M_metric = nn.L1Loss(reduction='sum')
+		for ii in range(0, batchsize):
+			for jj in range(0, batchsize):
 				if ii == jj:
-					c_loss = 1
+					M[ii,jj] = M_metric(latent_i[ii], latent_t[jj].detach())
 				else:
-					c_loss = 0
-				loss_ot = loss_ot + c_loss * pi_loss(latent_i[ii],latent_t[jj].detach())
+					M[ii,jj] = 10e10
+		aa = torch.ones([batchsize, ])
+		bb = torch.ones((batchsize, ))
+		# require ot.__version__ >= 0.8.0
+		gamma = ot.emd(aa, bb, M)
+		loss_ot = torch.sum(gamma*M).cuda()
 		return loss_ot
 
 
