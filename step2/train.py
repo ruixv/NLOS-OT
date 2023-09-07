@@ -60,27 +60,24 @@ def train(opt, train_data_loader,val_data_loader , model, visualizer):
 			print('#val images = %d' % val_dataset_size)
 			G_otlatent_val = 0
 			G_Content_val = 0
-			G_latent_L1loss_val = 0
 			for i, data in enumerate(val_dataset):
 				model.set_input(data)
 				model.validation()
 				errors = model.get_current_errors_val()
 				G_otlatent_val = G_otlatent_val+ errors['G_otlatent_val']
 				G_Content_val = G_otlatent_val+ errors['G_Content_val']
-				G_latent_L1loss_val = G_otlatent_val+ errors['G_latent_L1loss_val']
 
 			errors = OrderedDict([('G_otlatent_val', G_otlatent_val/1000),
-						('G_Content_val', G_Content_val/100),
-						('G_latent_L1loss_val', G_latent_L1loss_val/1000)
+						('G_Content_val', G_Content_val/100)
 					])
 			if opt.display_id > 0:
 				visualizer.plot_current_errors_val(epoch, float(epoch_iter)/train_dataset_size, opt, errors)
-			print('G_otlatent_val %d ,G_Content_val %d, G_latent_L1loss_val %d' % (G_otlatent_val/1000,G_Content_val/100,G_latent_L1loss_val/1000))
+			print('G_otlatent_val %d ,G_Content_val %d' % (G_otlatent_val/1000,G_Content_val/100))
 			txtName = "val_loss.txt"
 			filedir = os.path.join('./checkpoints/',opt.name,txtName)
 			f=open(filedir, "a+")
 			recordTime = 'Epoch=' + str(epoch) +'\n'
-			new_context = 'G_otlatent_val = '+  str(G_otlatent_val/1000) + ';G_Content_val=' + str(G_Content_val/100) + ';G_latent_L1loss_val=' + str(G_latent_L1loss_val/1000) + '\n'
+			new_context = 'G_otlatent_val = '+  str(G_otlatent_val/1000) + ';G_Content_val=' + str(G_Content_val/100) '\n'
 			f.write(recordTime)
 			f.write(new_context)
 			torch.cuda.empty_cache()
