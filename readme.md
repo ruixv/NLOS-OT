@@ -243,7 +243,7 @@ Before that, you should have installed the required packages and organized the d
 - You might also be interested in our latest work, which effectively handles multiple light transport conditions with a single network: Jiarui Zhang, Ruixu Geng, Xiaolong Du, Yan Chen, Houqiang Li, Yang Hu, "Passive Non-Line-of-Sight Imaging with Light Transport Modulation", IEEE TIP, 2024. If you think it is helpful, please consider citing
 
 	```
-	  @ARTICLE{nlosltm,
+	@ARTICLE{nlosltm,
 	author={Zhang, Jiarui and Geng, Ruixu and Du, Xiaolong and Chen, Yan and Li, Houqiang and Hu, Yang},
 	journal={IEEE Transactions on Image Processing}, 
 	title={Passive Non-Line-of-Sight Imaging with Light Transport Modulation}, 
