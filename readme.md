@@ -240,6 +240,20 @@ Before that, you should have installed the required packages and organized the d
 		year      = {2021}
 	}
 	```
+- You might also be interested in our latest work, which effectively handles multiple light transport conditions with a single network: Jiarui Zhang, Ruixu Geng, Xiaolong Du, Yan Chen, Houqiang Li, Yang Hu, "Passive Non-Line-of-Sight Imaging with Light Transport Modulation", IEEE TIP, 2024. If you think it is helpful, please consider citing
+
+	```
+	  @ARTICLE{nlosltm,
+	author={Zhang, Jiarui and Geng, Ruixu and Du, Xiaolong and Chen, Yan and Li, Houqiang and Hu, Yang},
+	journal={IEEE Transactions on Image Processing}, 
+	title={Passive Non-Line-of-Sight Imaging with Light Transport Modulation}, 
+	year={2024},
+	volume={},
+	number={},
+	pages={1-1},
+	keywords={Imaging;Image reconstruction;Nonlinear optics;Image restoration;Relays;Image resolution;Degradation;Computational modeling;Cameras;Surface reconstruction;Non-line-of-sight imaging;light transport conditions},
+	doi={10.1109/TIP.2024.3518097}}
+	```
 
 
 - We thank the following great works:
